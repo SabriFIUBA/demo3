@@ -1,0 +1,116 @@
+USE [SyncOps]
+GO
+
+/****** Object:  Table [dbo].[OrdenPago]    Script Date: 08/11/2021 11:36:41 a.m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[OrdenPago](
+	[OrdenPagoId] [int] NOT NULL,
+	[ClienteId] [int] NOT NULL,
+	[ImporteApagar] [decimal](18, 2) NOT NULL,
+	[Descuento] [decimal](18, 2) NOT NULL,
+	[Nota] [nvarchar](max) NULL,
+	[OrdenPagoIdExterno] [int] NULL,
+	[Estado] [nvarchar](max) NULL,
+	[FechaEnvio] [datetime2](7) NULL,
+	[UsuarioEnvio] [nvarchar](max) NULL,
+	[OrdenPagoGuid] [uniqueidentifier] NOT NULL,
+	[EstadoDescripcion] [nvarchar](max) NULL,
+	[ReciboID] [int] NULL,
+	[ReciboNumero] [nvarchar](max) NULL,
+	[ReciboFecha] [datetime2](7) NULL,
+	[RendicionID] [int] NULL,
+	[Cliente] [nvarchar](max) NULL,
+	[RazonSoc] [nvarchar](max) NULL,
+	[ReciboID_SYNC] [int] NULL,
+	[Vendedor] [nvarchar](max) NULL,
+ CONSTRAINT [PK_OrdenPago] PRIMARY KEY CLUSTERED 
+(
+	[OrdenPagoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
+
+
+USE [SyncOps]
+GO
+
+/****** Object:  Table [dbo].[OrdenPagoDetalle]    Script Date: 08/11/2021 11:36:59 a.m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[OrdenPagoDetalle](
+	[OrdenPagoDetalleId] [int] NOT NULL,
+	[OrdenPagoId] [int] NOT NULL,
+	[Importe] [decimal](18, 2) NOT NULL,
+	[Numero] [nvarchar](max) NULL,
+	[TipoComprobante] [nvarchar](max) NULL,
+	[CodigoComprobante] [nvarchar](max) NULL,
+	[Fecha] [datetime2](7) NOT NULL,
+	[TotalComprobante] [decimal](18, 2) NULL,
+	[Descuento] [decimal](18, 2) NULL,
+ CONSTRAINT [PK_OrdenPagoDetalle] PRIMARY KEY CLUSTERED 
+(
+	[OrdenPagoDetalleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[OrdenPagoDetalle]  WITH CHECK ADD  CONSTRAINT [FK_OrdenPagoDetalle_OrdenPago_OrdenPagoId] FOREIGN KEY([OrdenPagoId])
+REFERENCES [dbo].[OrdenPago] ([OrdenPagoId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[OrdenPagoDetalle] CHECK CONSTRAINT [FK_OrdenPagoDetalle_OrdenPago_OrdenPagoId]
+GO
+
+
+USE [SyncOps]
+GO
+
+/****** Object:  Table [dbo].[ValorOrdenPago]    Script Date: 08/11/2021 11:37:14 a.m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ValorOrdenPago](
+	[ValorOrdenPagoId] [int] NOT NULL,
+	[OrdenPagoId] [int] NOT NULL,
+	[Importe] [decimal](18, 2) NOT NULL,
+	[Numero] [nvarchar](max) NULL,
+	[Fecha] [datetime2](7) NULL,
+	[Tipo] [nvarchar](max) NULL,
+	[Nota] [nvarchar](max) NULL,
+	[Banco] [nvarchar](max) NULL,
+	[ChequePropio] [nvarchar](max) NULL,
+	[Cuit] [nvarchar](max) NULL,
+ CONSTRAINT [PK_ValorOrdenPago] PRIMARY KEY CLUSTERED 
+(
+	[ValorOrdenPagoId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[ValorOrdenPago]  WITH CHECK ADD  CONSTRAINT [FK_ValorOrdenPago_OrdenPago_OrdenPagoId] FOREIGN KEY([OrdenPagoId])
+REFERENCES [dbo].[OrdenPago] ([OrdenPagoId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [dbo].[ValorOrdenPago] CHECK CONSTRAINT [FK_ValorOrdenPago_OrdenPago_OrdenPagoId]
+GO
+
+
