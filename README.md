@@ -62,3 +62,56 @@ Content-Type: application/json
 
 "fechaEnvio": "3000" guarda "1969-12-31 21:00:03.0000000"
 "reciboFecha": "3000-01-01T03:00:00.000+00:00" guarda "3000-01-01 00:00:00.0000000"
+
+
+#### Guarda las órdenes de pago enviadas
+
+POST http://localhost:9095/api/ordenPago/altaOrdenesPago
+Accept: application/json
+Content-Type: application/json
+
+[
+{
+"ordenPagoId": 5,
+"clienteId": 5,
+"importeApagar": 500.00,
+"descuento": 0.00,
+"nota": "Nota5",
+"ordenPagoIdExterno": 5,
+"estado": "Estado5",
+"fechaEnvio": "5000",
+"usuarioEnvio": "UsuarioEnvio5",
+"ordenPagoGuid": "2A66057D-F5E5-5E2B-B2F1-58C51A96D585",
+"estadoDescripcion": "EstadoDescripcion5",
+"reciboID": 5,
+"reciboNumero": "ReciboNumero5",
+"reciboFecha": "5000-01-01T03:00:00.000+00:00",
+"rendicionID": 5,
+"cliente": "Cliente5",
+"razonSoc": "RazonSoc5",
+"reciboID_SYNC": 5,
+"vendedor": "Vendedor5"
+},
+
+	{
+	  "ordenPagoId": 6,
+	  "clienteId": 6,
+	  "importeApagar": 600.00,
+	  "descuento": 0.00,
+	  "nota": "Nota6",
+	  "ordenPagoIdExterno": 6,
+	  "estado": "Estado6",
+	  "fechaEnvio": "6000",
+	  "usuarioEnvio": "UsuarioEnvio6",
+	  "ordenPagoGuid": "2A66057D-F1E4-3E2B-B2F1-58C71A96D585",
+	  "estadoDescripcion": "EstadoDescripcion6",
+	  "reciboID": 6,
+	  "reciboNumero": "ReciboNumero6",
+	  "reciboFecha": "6000-01-01T03:00:00.000+00:00",
+	  "rendicionID": 6,
+	  "cliente": "Cliente6",
+	  "razonSoc": "RazonSoc6",
+	  "reciboID_SYNC": 6,
+	  "vendedor": "Vendedor6"
+	}
+]
