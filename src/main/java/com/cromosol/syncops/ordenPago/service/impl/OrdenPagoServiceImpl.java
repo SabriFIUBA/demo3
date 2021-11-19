@@ -17,4 +17,19 @@ public class OrdenPagoServiceImpl implements OrdenPagoService {
 
     @Override
     public List<OrdenPago> buscarTodos() { return ordenPagoRepository.findAll(); }
+
+    @Override
+    public List<OrdenPago> guardarTodos(List<OrdenPago> ordenesPago) {
+        return ordenPagoRepository.saveAll(ordenesPago);
+    }
+
+    @Override
+    public OrdenPago buscarPorId(Long id) {
+        return ordenPagoRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public OrdenPago guardar(OrdenPago ordenPago) {
+        return ordenPagoRepository.save(ordenPago);
+    }
 }

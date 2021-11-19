@@ -15,8 +15,32 @@ import java.sql.Timestamp;
 @Table(name = "OrdenPago"/*, schema = "PUBLIC"*/)
 //@NamedQuery(name="OrdenPago.findAll", query="SELECT op FROM OrdenPago op ")
 public class OrdenPago {
+    public OrdenPago() {}
+
+    public OrdenPago(Long ordenPagoId, Long clienteId, BigDecimal importeApagar, BigDecimal descuento, String nota, Long ordenPagoIdExterno, String estado, Timestamp fechaEnvio, String usuarioEnvio, String ordenPagoGuid, String estadoDescripcion, Long reciboID, String reciboNumero, Timestamp reciboFecha, Long rendicionID, String cliente, String razonSoc, Long reciboID_SYNC, String vendedor) {
+        OrdenPagoId = ordenPagoId;
+        ClienteId = clienteId;
+        ImporteApagar = importeApagar;
+        Descuento = descuento;
+        Nota = nota;
+        OrdenPagoIdExterno = ordenPagoIdExterno;
+        Estado = estado;
+        FechaEnvio = fechaEnvio;
+        UsuarioEnvio = usuarioEnvio;
+        OrdenPagoGuid = ordenPagoGuid;
+        EstadoDescripcion = estadoDescripcion;
+        ReciboID = reciboID;
+        ReciboNumero = reciboNumero;
+        ReciboFecha = reciboFecha;
+        RendicionID = rendicionID;
+        Cliente = cliente;
+        RazonSoc = razonSoc;
+        ReciboID_SYNC = reciboID_SYNC;
+        Vendedor = vendedor;
+    }
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(/*name = "OrdenPagoId", nullable = false,*/ columnDefinition = "INTEGER")
     private Long OrdenPagoId;
     @Column(columnDefinition = "INTEGER")
@@ -51,6 +75,8 @@ public class OrdenPago {
     private Long ReciboID_SYNC;
     @Column(columnDefinition = "NVARCHAR")
     private String Vendedor;
+
+
 
     /*public Long getOrdenPagoId() {
         return OrdenPagoId;
