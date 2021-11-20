@@ -3,6 +3,7 @@ package com.cromosol.syncops.ordenPago.service.impl;
 import com.cromosol.syncops.ordenPago.domain.OrdenPago;
 import com.cromosol.syncops.ordenPago.repository.OrdenPagoRepository;
 import com.cromosol.syncops.ordenPago.service.OrdenPagoService;
+import com.cromosol.syncops.ordenPagoDetalle.domain.OrdenPagoDetalle;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -20,7 +21,11 @@ public class OrdenPagoServiceImpl implements OrdenPagoService {
 
     @Override
     public List<OrdenPago> guardarTodos(List<OrdenPago> ordenesPago) {
-        return ordenPagoRepository.saveAll(ordenesPago);
+        for(OrdenPago op : ordenesPago){
+            if (this.buscarPorId(op.getOrdenPagoId()) == null) { ordenPagoRepository.save(op); };
+        }
+        // ver de cambiar a void
+        return ordenesPago;
     }
 
     @Override
