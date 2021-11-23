@@ -1,18 +1,13 @@
 package com.cromosol.syncops.ordenPago.domain;
 
 import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
-//import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-//import java.math.BigInteger;
 import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "OrdenPago"/*, schema = "PUBLIC"*/)
+@Table(name = "OrdenPago")
 //@NamedQuery(name="OrdenPago.findAll", query="SELECT op FROM OrdenPago op ")
 public class OrdenPago {
     public OrdenPago() {}
@@ -75,14 +70,4 @@ public class OrdenPago {
     private Long ReciboID_SYNC;
     @Column(columnDefinition = "NVARCHAR")
     private String Vendedor;
-
-
-
-    /*public Long getOrdenPagoId() {
-        return OrdenPagoId;
-    }
-
-    public void setOrdenPagoId(Long id) {
-        this.OrdenPagoId = OrdenPagoId;
-    }*/
 }

@@ -1,19 +1,13 @@
 package com.cromosol.syncops.ordenPagoDetalle.domain;
 
 import lombok.Data;
-//import lombok.Getter;
-//import lombok.Setter;
-//import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-//import java.math.BigInteger;
 import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "OrdenPagoDetalle"/*, schema = "PUBLIC"*/)
-//@NamedQuery(name="OrdenPago.findAll", query="SELECT op FROM OrdenPago op ")
+@Table(name = "OrdenPagoDetalle")
 public class OrdenPagoDetalle {
     public OrdenPagoDetalle() {}
 

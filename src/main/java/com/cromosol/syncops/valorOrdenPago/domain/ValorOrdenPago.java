@@ -12,8 +12,7 @@ import java.sql.Timestamp;
 
 @Data
 @Entity
-@Table(name = "ValorOrdenPago"/*, schema = "PUBLIC"*/)
-//@NamedQuery(name="OrdenPago.findAll", query="SELECT op FROM OrdenPago op ")
+@Table(name = "ValorOrdenPago")
 public class ValorOrdenPago {
     public ValorOrdenPago() {}
 
