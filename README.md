@@ -115,3 +115,12 @@ Ejemplo:
           "vendedor": "Vendedor6"
         }
     ]
+    
+
+### Detalles ambiente
+Desarrollado en Ubuntu 20.04.3 LTS
+DBMS: Microsoft SQL Server (ver. 15.00.4178)
+Case sensitivity: plain=mixed, delimited=mixed
+Driver: Microsoft JDBC Driver 9.4 for SQL Server (ver. 9.4.0.0, JDBC4.2)
+Ping: 42 ms
+SSL: no
